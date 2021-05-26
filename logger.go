@@ -1,18 +1,16 @@
 package gsr
 
-// SimpleLogger interface
-type SimpleLogger interface {
+// Printer interface definition
+type Printer interface {
 	Print(v ...interface{})
 	Printf(format string, v ...interface{})
 	Println(v ...interface{})
 }
 
-// StdLogger interface.
+// StdLogger interface definition.
 // refer the go "log" package.
 type StdLogger interface {
-	Print(v ...interface{})
-	Printf(format string, v ...interface{})
-	Println(v ...interface{})
+	Printer
 	Fatal(v ...interface{})
 	Fatalf(format string, v ...interface{})
 	Fatalln(v ...interface{})
@@ -21,7 +19,7 @@ type StdLogger interface {
 	Panicln(v ...interface{})
 }
 
-// Logger interface
+// Logger interface definition
 type Logger interface {
 	StdLogger
 	Debug(v ...interface{})
