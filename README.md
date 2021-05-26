@@ -6,9 +6,74 @@
 
 Go Standards Recommendations
 
+## Install
+
+```bash
+go get github.com/gookit/gsr
+```
+
 ## Interfaces
 
 - [logger](logger.go)
 - [simple cache](simple_cache.go)
 
+## Usage
 
+### Logger Interface
+
+**Std Logger**
+
+```go
+package main
+import (
+	"github.com/gookit/gsr"
+)
+
+type MyApp struct {
+	logger gsr.StdLogger // std logger
+}
+
+func (ma *MyApp) SetLogger(logger gsr.StdLogger)  {
+	ma.logger = logger
+}
+```
+
+**Full Logger**
+
+```go
+package main
+import (
+	"github.com/gookit/gsr"
+)
+
+type MyApp struct {
+	logger gsr.Logger // full logger
+}
+
+func (ma *MyApp) SetLogger(logger gsr.Logger)  {
+	ma.logger = logger
+}
+```
+
+### Cache Interface
+
+**Simple Cache**
+
+```go
+package main
+import (
+	"github.com/gookit/gsr"
+)
+
+type MyApp struct {
+	cacher gsr.SimpleCacher
+}
+
+func (ma *MyApp) SetCacher(cacher gsr.SimpleCacher)  {
+	ma.cacher = cacher
+}
+```
+
+## LICENSE
+
+[MIT](LICENSE)

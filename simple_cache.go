@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-// SimpleCache interface definition
-type SimpleCache interface {
+// SimpleCacher interface definition
+type SimpleCacher interface {
 	// Closer close
 	io.Closer
 	// Clear clear
