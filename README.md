@@ -74,6 +74,16 @@ func (ma *MyApp) SetCacher(cacher gsr.SimpleCacher)  {
 }
 ```
 
+### Marshaler interface
+
+```go
+// Marshaler interface for Marshal/Unmarshal data
+type Marshaler interface {
+	Marshal(v interface{}) ([]byte, error)
+	Unmarshal(data []byte, ptr interface{}) error
+}
+```
+
 ## LICENSE
 
 [MIT](LICENSE)
