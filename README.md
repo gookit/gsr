@@ -15,7 +15,8 @@ go get github.com/gookit/gsr
 ## Interfaces
 
 - [logger](logger.go)
-- [simple cache](simple_cache.go)
+- [cacher](cacher.go)
+- [marshaler](marshaler.go)
 
 ## Usage
 
