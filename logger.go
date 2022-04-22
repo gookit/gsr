@@ -19,9 +19,8 @@ type StdLogger interface {
 	Panicln(v ...interface{})
 }
 
-// Logger interface definition
-type Logger interface {
-	StdLogger
+// GenLogger generic logger interface definition
+type GenLogger interface {
 	Debug(v ...interface{})
 	Debugf(format string, v ...interface{})
 	Info(v ...interface{})
@@ -30,4 +29,10 @@ type Logger interface {
 	Warnf(format string, v ...interface{})
 	Error(v ...interface{})
 	Errorf(format string, v ...interface{})
+}
+
+// Logger interface definition
+type Logger interface {
+	StdLogger
+	GenLogger
 }

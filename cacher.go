@@ -1,6 +1,7 @@
 package gsr
 
 import (
+	"context"
 	"io"
 	"time"
 )
@@ -9,7 +10,7 @@ import (
 type SimpleCacher interface {
 	// Closer close cache handle
 	io.Closer
-	// Clear clear all caches
+	// Clear all cache data
 	Clear() error
 
 	// Has basic operation
@@ -22,6 +23,22 @@ type SimpleCacher interface {
 	GetMulti(keys []string) map[string]interface{}
 	SetMulti(values map[string]interface{}, ttl time.Duration) error
 	DelMulti(keys []string) error
+}
+
+// ContextCacher interface.
+type ContextCacher interface {
+	SimpleCacher
+
+	// HasWithCtx basic operation
+	HasWithCtx(ctx context.Context, key string) bool
+	DelWithCtx(ctx context.Context, key string) error
+	GetWithCtx(ctx context.Context, key string) interface{}
+	SetWithCtx(ctx context.Context, key string, val interface{}, ttl time.Duration) error
+
+	// MGetWithCtx multi keys operation
+	MGetWithCtx(ctx context.Context, keys []string) map[string]interface{}
+	MSetWithCtx(ctx context.Context, values map[string]interface{}, ttl time.Duration) error
+	MDelWithCtx(ctx context.Context, keys []string) error
 }
 
 // CodedCacher interface.
