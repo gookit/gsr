@@ -28,6 +28,13 @@ type SimpleCacher interface {
 // ContextCacher interface.
 type ContextCacher interface {
 	SimpleCacher
+	// WithContext and clone new cacher
+	WithContext(ctx context.Context) ContextCacher
+}
+
+// ContextOpCacher interface.
+type ContextOpCacher interface {
+	SimpleCacher
 
 	// HasWithCtx basic operation
 	HasWithCtx(ctx context.Context, key string) bool
