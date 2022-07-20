@@ -10,8 +10,8 @@ type Unmarshaler interface {
 	Unmarshal(v []byte, ptr interface{}) error
 }
 
-// DataMarshaler interface for Marshal/Unmarshal data
-type DataMarshaler interface {
+// DataParser interface for Marshal/Unmarshal data
+type DataParser interface {
 	Marshaler
 	Unmarshaler
 }

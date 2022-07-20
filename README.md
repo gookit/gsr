@@ -16,7 +16,7 @@ go get github.com/gookit/gsr
 
 - [logger](logger.go)
 - [cacher](cacher.go)
-- [marshaler](marshaler.go)
+- [parser](parser.go)
 
 ## Usage
 
@@ -75,11 +75,11 @@ func (ma *MyApp) SetCacher(cacher gsr.SimpleCacher)  {
 }
 ```
 
-### Marshaler interface
+### DataParser interface
 
 ```go
-// Marshaler interface for Marshal/Unmarshal data
-type Marshaler interface {
+// DataParser interface for Marshal/Unmarshal data
+type DataParser interface {
 	Marshal(v interface{}) ([]byte, error)
 	Unmarshal(data []byte, ptr interface{}) error
 }
