@@ -2,33 +2,32 @@ package gsr
 
 // Printer interface definition
 type Printer interface {
-	Print(v ...interface{})
-	Printf(format string, v ...interface{})
-	Println(v ...interface{})
+	Print(v ...any)
+	Printf(format string, v ...any)
+	Println(v ...any)
 }
 
-// StdLogger interface definition.
-// refer the go "log" package.
+// StdLogger interface definition. refer the go "log" package.
 type StdLogger interface {
 	Printer
-	Fatal(v ...interface{})
-	Fatalf(format string, v ...interface{})
-	Fatalln(v ...interface{})
-	Panic(v ...interface{})
-	Panicf(format string, v ...interface{})
-	Panicln(v ...interface{})
+	Fatal(v ...any)
+	Fatalf(format string, v ...any)
+	Fatalln(v ...any)
+	Panic(v ...any)
+	Panicf(format string, v ...any)
+	Panicln(v ...any)
 }
 
 // GenLogger generic logger interface definition
 type GenLogger interface {
-	Debug(v ...interface{})
-	Debugf(format string, v ...interface{})
-	Info(v ...interface{})
-	Infof(format string, v ...interface{})
-	Warn(v ...interface{})
-	Warnf(format string, v ...interface{})
-	Error(v ...interface{})
-	Errorf(format string, v ...interface{})
+	Debug(v ...any)
+	Debugf(format string, v ...any)
+	Info(v ...any)
+	Infof(format string, v ...any)
+	Warn(v ...any)
+	Warnf(format string, v ...any)
+	Error(v ...any)
+	Errorf(format string, v ...any)
 }
 
 // Logger interface definition

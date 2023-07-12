@@ -80,8 +80,8 @@ func (ma *MyApp) SetCacher(cacher gsr.SimpleCacher)  {
 ```go
 // DataParser interface for Marshal/Unmarshal data
 type DataParser interface {
-	Marshal(v interface{}) ([]byte, error)
-	Unmarshal(data []byte, ptr interface{}) error
+	Marshal(v any) ([]byte, error)
+	Unmarshal(data []byte, ptr any) error
 }
 ```
 

@@ -2,12 +2,12 @@ package gsr
 
 // Marshaler interface
 type Marshaler interface {
-	Marshal(v interface{}) ([]byte, error)
+	Marshal(v any) ([]byte, error)
 }
 
 // Unmarshaler interface
 type Unmarshaler interface {
-	Unmarshal(v []byte, ptr interface{}) error
+	Unmarshal(v []byte, ptr any) error
 }
 
 // DataParser interface for Marshal/Unmarshal data
@@ -17,17 +17,17 @@ type DataParser interface {
 }
 
 // MarshalFunc define
-type MarshalFunc func(v interface{}) ([]byte, error)
+type MarshalFunc func(v any) ([]byte, error)
 
 // Marshal implements the Marshaler
-func (m MarshalFunc) Marshal(v interface{}) ([]byte, error) {
+func (m MarshalFunc) Marshal(v any) ([]byte, error) {
 	return m(v)
 }
 
 // UnmarshalFunc define
-type UnmarshalFunc func(v []byte, ptr interface{}) error
+type UnmarshalFunc func(v []byte, ptr any) error
 
 // Unmarshal implements the Unmarshaler
-func (u UnmarshalFunc) Unmarshal(v []byte, ptr interface{}) error {
+func (u UnmarshalFunc) Unmarshal(v []byte, ptr any) error {
 	return u(v, ptr)
 }
