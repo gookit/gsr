@@ -75,13 +75,25 @@ func (ma *MyApp) SetCacher(cacher gsr.SimpleCacher)  {
 }
 ```
 
-### DataParser interface
+### Serialize interface
 
 ```go
-// DataParser interface for Marshal/Unmarshal data
-type DataParser interface {
+// Serializer interface definition
+type Serializer interface {
+	Serialize(v any) ([]byte, error)
+	Deserialize(data []byte, v any) error
+}
+
+// GoSerializer interface definition
+type GoSerializer interface {
 	Marshal(v any) ([]byte, error)
-	Unmarshal(data []byte, ptr any) error
+	Unmarshal(v []byte, ptr any) error
+}
+
+// Codec interface definition
+type Codec interface {
+	Decode(blob []byte, v any) (err error)
+	Encode(v any) (out []byte, err error)
 }
 ```
 
